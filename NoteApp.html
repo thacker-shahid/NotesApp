@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Notes App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<style>
+    body {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    footer {
+        /* height: 13%; */
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+
+    i {
+        color: white;
+        background: transparent;
+        padding: 5px;
+    }
+
+    section {
+        height: 100vh;
+    }
+    #addTxt{
+        background: transparent;
+        border-inline-start: none;
+        border-inline-end:none;
+        border-top: none;
+    }
+    #searchTxt{
+        background: transparent;
+        border-inline-start: none;
+        border-inline-end:none;
+        border-top: none;
+        color: white;
+        margin-top: 2%;
+    }
+</style>
+
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Welcome to Notes App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline ml-auto mx-2">
+                <input class="form-control mr-sm-2" id="searchTxt" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-2" data-toggle="modal"
+                data-target="#login"> logout</button>
+        </div>
+    </nav> -->
+
+    <section>
+        <div class="container" style="width: 18rem; margin-top: 5%;">
+            <div class="row">
+                <div class="card" style="border: none;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Task List</h5>
+                        <!-- <hr> --> <br>
+                        <div class="row">
+                            <form>
+
+                                <input type="text" class="form-control" id="addTxt" rows="3" cols="20"
+                                    placeholder="write your notes here..."></input>
+
+                            </form>
+                            <a href="#" class="btn btn-outline-success my-3" id="addBtn">Add task</a>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <h5 class="card-title">Tasks</h5>
+                        </div>
+                        <div id="notes"></div>
+                        <a class="btn btn-outline-danger my-2" id="clearBtn" onclick="clearTask(this.id)"
+                            style="cursor: pointer" ;>Clear all</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="page-footer font-small mdb-color bg-dark">
+        <div class="icon">
+            <a target="_blank" href="https://www.facebook.com/tauheed.shahid.1"><i
+                    class="fa fa-1.8x fa-facebook-square"></i></a>
+            <a target="_blank" href="https://www.instagram.com/thacker__shahid/"><i
+                    class="fa fa-1.8x fa-instagram"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/thacker-shahid-529361191/"><i
+                    class="fa fa-1.8x fa-linkedin"></i></a>
+            <a target="_blank" href="https://github.com/thacker-shahid"><i class="fa fa-1.8x  fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- <script>
+    
+showNotes();
+
+let addBtn = document.getElementById("addBtn");
+addBtn.addEventListener("click", function(e)
+ {
+    let addTxt = document.getElementById("addTxt");
+    if (addTxt.value == '')
+        alert('Please add some notes 😞!!');
+    else { 
+    let notes = localStorage.getItem("notes");
+    if (notes == null) {
+        notes = [];
+    }
+    else {
+        notes = JSON.parse(notes);
+    }
+
+    notes.push(addTxt.value);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    addTxt.value = "";
+    showNotes();
+   }
+} );
+
+
+function showNotes() {
+    let notes = localStorage.getItem("notes");
+    if (notes == null) {
+        notes = [];
+    }
+    else {
+        notes = JSON.parse(notes);
+    }
+    let html = "";
+    notes.forEach(function(element, index) {
+        html += `
+    <div class="card noteCard">
+       <div class="card-body">
+        <p class="card-text">${element}</p>
+        <i class="fa fa-times" aria-hidden="true" id="${index}" onclick="deleteNote(this.id)" style="float: right; cursor: pointer; color: red;"></i>
+       </div>
+    </div> 
+     `;
+
+    });
+  
+
+    let collect = document.getElementById("notes");
+    if (notes.length == 0) {
+        let clearBtn=document.getElementById("clearBtn");
+        clearBtn.style.display='none';
+        collect.innerHTML = `<p>No notes are there 😞!!</p>`;   
+    }
+
+    else {
+        let clearBtn=document.getElementById("clearBtn");
+        clearBtn.style.display='block';
+        collect.innerHTML = html;
+    } 
+}
+
+function deleteNote(index) {
+    let notes = localStorage.getItem("notes");
+    if (notes == null) {
+        notes = [];
+    } else {
+        notes = JSON.parse(notes);
+    }
+    notes.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    showNotes();
+}
+
+function clearTask() {
+    if(alert('Are You sure?'))
+    {
+        while(notes.firstChild) {
+            notes.removeChild(notes.firstChild);
+          }
+    }
+    localStorage.clear();
+    showNotes();
+  }
+
+
+const searchTxt = document.querySelector('#searchTxt');
+searchTxt.addEventListener('input', filterTasks);
+
+  function filterTasks(e) {
+    const text = e.target.value.toLowerCase();
+  
+    document.querySelectorAll('.noteCard').forEach(function(task)
+    {
+      let item = task.getElementsByTagName("p")[0].innerText;
+      console.log(item);
+      if(item.toLowerCase().indexOf(text) != -1)
+      {
+        task.style.display = 'block';
+      } 
+      else 
+      {
+        task.style.display = 'none';
+      }
+    });
+  }
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="../javascript/NoteApp.js"></script>
+</body>
+
+</html>
