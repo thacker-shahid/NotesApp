@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+
+    <title>Notes app</title>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            /* height: 13%; */
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+        i{
+            color: white;
+            background:transparent;
+            padding: 5px;
+        }
+        section{
+            height: 100vh;
+        } 
+        body {
+        font-family: 'Ubuntu', sans-serif;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Welcome to Notes App</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline ml-auto mx-2">
+                <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-2" data-toggle="modal"
+                    data-target="#login">
+                    login
+                </button>
+                <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#signup"
+                    type="submit">SignUp</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- ================== Starter body text ==================== -->
+
+
+<section>
+
+    <div class="card text-center container" style="width: 18rem; margin-top: 3%;">
+        <div class="card-header">
+            To get started
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item my-2">
+                <p class="my-2">Click on login button, if you already have an account</p>
+                <button class="btn btn-outline-success my-2 my-sm-0 col" data-toggle="modal" data-target="#login"
+                    type="submit">login
+                </button>
+            </li>
+            <li class="list-group-item">
+                <p class="my-2">Click on SignUp button, if you are new user</p>
+                <button class="btn btn-outline-success my-2 my-sm-0 col" data-toggle="modal" data-target="#signup"
+                    type="submit">SignUp
+                </button>
+            </li>
+            <li class="list-group-item">
+                <p class="my-2">Click on the below button to use the app directly.</p>
+                <a href="NoteApp.html">
+                    <button class="btn btn-outline-success my-2 my-sm-0 col" data-toggle="modal" data-target="#">Click
+                        here to use the app
+                    </button></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <!-- =================== login form markup ====================== -->
+
+
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-primary">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =================== SignUp form markup ====================== -->
+
+
+    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">SignUp</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+
+                            <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.
+                            </small>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Phone Number *" value="" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Confirm Password *" value="" />
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-primary">signUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="page-footer font-small mdb-color bg-dark">
+    <div class="icon">
+        <a target="_blank" href="https://www.facebook.com/tauheed.shahid.1"><i
+                class="fa fa-1.8x fa-facebook-square"></i></a>
+        <a target="_blank" href="https://www.instagram.com/thacker__shahid/"><i
+                class="fa fa-1.8x fa-instagram"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/thacker-shahid-529361191/"><i
+                class="fa fa-1.8x fa-linkedin"></i></a>
+        <a target="_blank" href="https://github.com/thacker-shahid"><i class="fa fa-1.8x  fa-github"></i></a>
+    </div>
+</footer>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
